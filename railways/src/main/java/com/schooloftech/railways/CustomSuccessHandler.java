@@ -20,15 +20,15 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler{
             Authentication authentication) throws IOException, ServletException {
 
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
-        
-        if(roles.contains("SCHED")){
-            response.sendRedirect("/sched");
-        }else if(roles.contains("FIN")){
-            response.sendRedirect("/finance/home");
-        }else{
-            response.sendRedirect("/user");
-        }
+        System.out.println("roles" + roles);
 
+        if(roles.contains("SCHED")){
+            response.sendRedirect("railwayticketing/sched/home");
+        }else if(roles.contains("FIN")){
+            response.sendRedirect("/railwayticketing/finance/home");
+        }else{
+            response.sendRedirect("/railwayticketing/user/home");
+        }
         
     }
     

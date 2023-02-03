@@ -45,10 +45,10 @@ public class SecurityConfiguration {
         @Bean
         public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
             http.authorizeHttpRequests().requestMatchers("/railwayticketing/**").permitAll()
-                    // .requestMatchers("/user/**").authenticated()
-                    // .requestMatchers("/user/**").hasRole("USER")
-                    // .requestMatchers("/finance/**").hasRole("FIN")
-                    // .requestMatchers("/schedule/**").hasRole("SCHED")
+                    .requestMatchers("/user/**").authenticated()
+                    .requestMatchers("/user/**").hasAuthority("USER")
+                    .requestMatchers("/finance/**").hasAuthority("FIN")
+                    .requestMatchers("/schedule/**").hasAnyRole("SCHED")
                     .anyRequest().permitAll()
                     .and()
                     .formLogin()

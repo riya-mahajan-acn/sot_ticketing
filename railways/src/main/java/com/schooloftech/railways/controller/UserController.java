@@ -18,7 +18,7 @@ public class UserController {
     @Autowired
     private UserRepository userRepo;
 
-    @GetMapping("/")
+    @GetMapping("/home")
     public String userHome(Principal p, Model model){
 
         String email = p.getName();
