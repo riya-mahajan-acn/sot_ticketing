@@ -18,12 +18,14 @@
     <h1>Timetable for the Train</h1>
 
     <table class="center">
-        <th scope="col">Station</th>
         <th scope="col">Train</th>
+        <th scope="col">Departing Station</th>
+        <th scope="col">Arriving Station</th>
         <th scope="col">Departure Time</th>
         <tr th:each="sched: ${schedule}">
-            <!-- <td th:text="${sched.station_id}">
-            <td th:text="${sched.train_id}"> -->
+            <td th:text="${sched.train_name}">
+            <td th:text="${sched.departure_st}">
+            <td th:text="${sched.arrival_st}">
             <td th:text="${sched.departure_time}">
         </tr>
 </body>

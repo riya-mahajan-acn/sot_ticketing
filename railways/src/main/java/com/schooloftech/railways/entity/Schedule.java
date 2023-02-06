@@ -1,6 +1,7 @@
 package com.schooloftech.railways.entity;
 
 import java.sql.Time;
+import java.time.LocalTime;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,14 +16,29 @@ public class Schedule {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
+
     private String train_group;
+
     private String train_name;
+
     private String departure_st;
+
     private String arrival_st;
+
     private Time departure_time;
 
     public Schedule() {
     }
+
+
+    public Schedule(String train_group, String train_name, String departure_st, String arrival_st, LocalTime localTime) {
+        this.train_group = train_group;
+        this.train_name = train_name;
+        this.departure_st = departure_st;
+        this.arrival_st = arrival_st;
+        this.departure_time = Time.valueOf(localTime);
+    }
+
 
     public int getId() {
         return this.id;
