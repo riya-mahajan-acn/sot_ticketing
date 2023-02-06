@@ -23,7 +23,7 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler{
         System.out.println("roles" + roles);
 
         if(roles.contains("SCHED")){
-            response.sendRedirect("railwayticketing/sched/home");
+            response.sendRedirect("/railwayticketing/sched/home");
         }else if(roles.contains("FIN")){
             response.sendRedirect("/railwayticketing/finance/home");
         }else{
