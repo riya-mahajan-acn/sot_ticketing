@@ -78,6 +78,11 @@ public class MainController {
         return "timetable";
     }
 
+    @GetMapping("/contactus")
+    public String contactus() {
+        return "contactus";
+    }
+
     @GetMapping("/{id}")
     public Schedule get(@PathVariable Integer id){
         return schedRepo.getReferenceById(id);
