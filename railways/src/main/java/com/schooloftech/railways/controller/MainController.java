@@ -72,44 +72,15 @@ public class MainController {
         return "redirect:/home";
     }
 
-    @GetMapping
-    @RequestMapping("/timetable")
+    @GetMapping("/timetable")
     public String getSchedule(Model model) {
             model.addAttribute("schedule", schedRepo.findAll());
         return "timetable";
     }
 
-    @GetMapping
-    @RequestMapping("/{id}")
+    @GetMapping("/{id}")
     public Schedule get(@PathVariable Integer id){
         return schedRepo.getReferenceById(id);
     }
-
-    @PostMapping("/upload")
-    public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
-    String message = "";
-
-    if (CSVHelper.hasCSVFormat(file)) {
-      try {
-        fileService.save(file);
-
-        message = "Uploaded the file successfully: " + file.getOriginalFilename();
-        
-        // String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-        //         .path("/api/csv/download/")
-        //         .path(file.getOriginalFilename())
-        //         .toUriString();
-
-        return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
-      } catch (Exception e) {
-        message = "Could not upload the file: " + file.getOriginalFilename() + "!";
-        return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
-      }
-    }
-
-    message = "Please upload a csv file!";
-    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage(message));
-  }
-
     
 }
