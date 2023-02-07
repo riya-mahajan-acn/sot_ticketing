@@ -33,13 +33,13 @@ public class FinanceController{
         User user = userRepo.findByEmail(em);
         model.addAttribute("firstname", user.getFirstName());
 
-        return "f_home";
+        return "finance/f_home";
     }
 
     @GetMapping("/timetable")
     public String getSchedule(Model model) {
             model.addAttribute("schedule", schedRepo.findAll());
-        return "timetable";
+        return "f_timetable";
     }
 
     @GetMapping("/userList")
