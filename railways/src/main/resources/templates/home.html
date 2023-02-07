@@ -8,12 +8,16 @@
           crossorigin="anonymous">
     <link th:href = "@{/css/travelsearch.css}" rel = "stylesheet">
 </head>
-<body style="background-image:url('https://n3n.io/wp-content/uploads/2018/03/translog-flip-e1522168792554-800x483.jpg');background-size:cover">
+<style>
+    form{
+    margin-top: 22%;
+    }
+</style>
+<body style="background-image:url('https://n3n.io/wp-content/uploads/2018/03/translog-flip-e1522168792554-800x483.jpg');background-size:cover;">
 
     <div th:insert="navbar_prelogin :: navbar_prelogin"></div>
     <br>
     <h1>SoT Railway Ticketing System</h1>
-
     <form>
         <h3>Find your seats! </h3>
         <label>From:</label>
@@ -26,6 +30,5 @@
         <input type="number" name="number_of_people" method = "post" min = "1" max = "5" class = "inputrect">
         <button type="submit">Submit</button>
     </form>
-    
 </body>
 </html>

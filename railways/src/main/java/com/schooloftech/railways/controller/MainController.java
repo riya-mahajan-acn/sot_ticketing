@@ -26,6 +26,8 @@ import com.schooloftech.railways.ResponseMessage;
 
 import jakarta.servlet.http.HttpSession;
 
+import java.io.UnsupportedEncodingException;
+
 
 @Controller
 public class MainController {
@@ -77,6 +79,11 @@ public class MainController {
     public String getSchedule(Model model) {
             model.addAttribute("schedule", schedRepo.findAll());
         return "timetable";
+    }
+
+    @GetMapping("/contactus")
+    public String contactus() {
+        return "contactus";
     }
 
     @GetMapping
