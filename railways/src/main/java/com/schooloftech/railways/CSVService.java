@@ -20,7 +20,7 @@ public class CSVService {
     //save the csv into our database
     public void save(MultipartFile file) {
       try {
-        List<Schedule> schedule = CSVHelper.csvToTutorials(file.getInputStream());
+        List<Schedule> schedule = CSVHelper.csvToschedules(file.getInputStream());
         schedRepo.saveAll(schedule);
       } catch (IOException e) {
         throw new RuntimeException("fail to store csv data: " + e.getMessage());

@@ -39,7 +39,6 @@ public class Schedule {
         this.departure_time = Time.valueOf(localTime);
     }
 
-
     public int getId() {
         return this.id;
     }

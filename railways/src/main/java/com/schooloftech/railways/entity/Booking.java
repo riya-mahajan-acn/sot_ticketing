@@ -12,15 +12,15 @@ public class Booking {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int booking_id;
-    @OneToMany
-    @JoinColumn(name="users", referencedColumnName = "id")
+    // @OneToMany
+    // @JoinColumn(name="users", referencedColumnName = "id")
     private int customer_id;
     private Date booking_date;
     private String departure_st;
     private Date departure_date;
     private Time departure_time;
-    @OneToMany
-    @JoinColumn(name="train_fare", referencedColumnName = "fare")
+    // @OneToMany
+    // @JoinColumn(name="train_fare", referencedColumnName = "fare")
     private int train_fare;
     private int number_of_tickets;
 

@@ -1,0 +1,10 @@
+<div class="container importuser">
+    <div class="form-group">
+    <form method="POST" th:action="@{/upload}" enctype="multipart/form-data">
+        <input type="hidden" name="companyGuid" th:value="${companyGuid}"/>
+        <input type="file" name="file"/></br></br>
+        <button type="submit" class="btn btn-primary btn-lg" value="Import">Import
+        </button>
+    </form>
+    </div>
+</div>

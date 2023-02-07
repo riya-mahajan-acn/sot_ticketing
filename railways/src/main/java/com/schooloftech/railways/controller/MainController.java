@@ -86,7 +86,7 @@ public class MainController {
     }
 
     @PostMapping("/upload")
-  public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
+    public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
     String message = "";
 
     if (CSVHelper.hasCSVFormat(file)) {
