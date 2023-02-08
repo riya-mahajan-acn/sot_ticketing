@@ -15,22 +15,18 @@
     <div th:insert="f_navbar :: f_navbar"></div>
     <br>
 
-    <h1>User List</h1>
+    <h1>Timetable for the Train</h1>
 
     <table class="center">
-        <th scope="col">Customer ID</th>
-        <th scope="col">Email</th>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">Role</th>
-
-        <tr th:each="user: ${users}">
-            <td th:text="${user.id}">
-            <td th:text="${user.email}">
-            <td th:text="${user.firstName}">
-            <td th:text="${user.lastName}">
-            <td th:text="${user.role}">
-
+        <th scope="col">Train</th>
+        <th scope="col">Departing Station</th>
+        <th scope="col">Arriving Station</th>
+        <th scope="col">Departure Time</th>
+        <tr th:each="sched: ${schedule}">
+            <td th:text="${sched.train_name}">
+            <td th:text="${sched.departure_st}">
+            <td th:text="${sched.arrival_st}">
+            <td th:text="${sched.departure_time}">
         </tr>
 </body>
 </html>

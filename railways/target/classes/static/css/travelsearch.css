@@ -1,11 +1,13 @@
 body {
     color: #000000;
     font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    height: auto;
 }
 
 .background{
-    width: 430px;
-    height: 520px;
+    width: 100%; /*430px;*/
+    height: auto; /*520px;*/
     position: absolute;
     transform: translate(-50%,-50%);
     left: 50%;
@@ -14,10 +16,11 @@ body {
 
 
 form{
+    display: inline-block;
     height: 500px;
     width: 400px;
     background-color: rgba(255,255,255,0.13);
-    position: absolute;
+    position: relative;
     transform: translate(-50%,-50%);
     top: 50%;
     left: 50%;
@@ -52,6 +55,22 @@ label{
     color:black;
 }
 
+select{
+    display: block;
+    height: 40px;
+    width: 100%;
+    border: 3px solid #d8aff0ab;
+    opacity: 0.5;
+    border-radius: 3px;
+    padding: 0 4px;
+    margin-top: 3px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 300;
+    color:grey;
+    text-indent: 10px;
+}
+
 input{
     display: block;
     height: 40px;
@@ -75,9 +94,9 @@ input{
 button{
     margin-top: 20px;
     margin-bottom: 10px;
-    width: 8.5cm;
+    width: 100%;
     color: #080710;
-    padding: 15px 0px;
+    padding: 10px 0px;
     font-size: 18px;
     font-weight: 600;
     border-radius: 5px;
@@ -96,9 +115,15 @@ button:hover{
 a{
     color:black;
     font-family: 'Nunito';
+    font-size: 18px
+    font-weight: bold;
 }
 
 .inputrect{
+    border-radius: 75px;
+    height:1cm;
+}
+.form-control{
     border-radius: 75px;
     height:1cm;
 }

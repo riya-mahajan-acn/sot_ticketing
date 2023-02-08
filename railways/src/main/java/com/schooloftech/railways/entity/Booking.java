@@ -12,9 +12,10 @@ public class Booking {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int booking_id;
-    // @OneToMany
-    // @JoinColumn(name="users", referencedColumnName = "id")
-    private int customer_id;
+    @ManyToOne(cascade = CascadeType.ALL)
+    //@JoinColumn(name="customer_id")
+    private User user;
+    //private int customer_id;
     private Date booking_date;
     private String departure_st;
     private Date departure_date;
@@ -32,13 +33,9 @@ public class Booking {
         this.booking_id = booking_id;
     }
 
-    public int getCustomer_id() {
-        return customer_id;
-    }
+    //public int getCustomer_id() {return customer_id;}
 
-    public void setCustomer_id(int customer_id) {
-        this.customer_id = customer_id;
-    }
+    //public void setCustomer_id(int customer_id) {this.customer_id = customer_id;}
 
     public Date getBooking_date() {
         return booking_date;
