@@ -115,6 +115,8 @@ button:hover{
 a{
     color:black;
     font-family: 'Nunito';
+    font-size: 18px
+    font-weight: bold;
 }
 
 .inputrect{
