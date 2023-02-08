@@ -15,21 +15,32 @@
     width: 400px;
 }
 </style>
-<body style="background-image:url('https://n3n.io/wp-content/uploads/2018/03/translog-flip-e1522168792554-800x483.jpg');background-size:cover">
+<body style="background-image:url('https://n3n.io/wp-content/uploads/2018/03/translog-flip-e1522168792554-800x483.jpg'); background-size:cover;">
 
     <div th:insert="navbar_prelogin :: navbar_prelogin"></div>
     <br>
     <div>
     <h1>SoT Railway Ticketing System</h1>
     </div>
-    <br>
     <div>
-    <form>
+    <form class="form-dropdown" th:action="@{/home}" method ="post">
         <h3>Find your seats! </h3>
         <label>From:</label>
-        <input type="text" name="departing_station" method = "post" class = "inputrect">
+        <select class="form-control" id="sel1" th:field="*{stations}">
+            <option value="0">Select departure station</option>
+            <option th:each="station : ${stations}" th:value="${station}" th:text="${station}">
+            </option>
+        </select>
+        <!--<input type="text" name="departing_station" method = "post" class = "inputrect">!-->
         <label>To:</label>
-        <input type="text" name="arrival_station" method = "post" class = "inputrect">
+        <select class="form-control" id="sel2" th:field="*{stations}">
+            <option value="0">Select arrival station</option>
+            <option th:each="station : ${stations}"
+                    th:value="${station}"
+                    th:text="${station}">
+            </option>
+        </select>
+        <!--<input type="text" name="arrival_station" method = "post" class = "inputrect">!-->
         <label>Date</label>
         <input type="date" name="departure_date" method = "post" class = "inputrect">
         <label>Number of People:</label>

@@ -1,13 +1,10 @@
 package com.schooloftech.railways.controller;
+import com.schooloftech.railways.entity.Booking;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import com.schooloftech.railways.entity.Schedule;
 import com.schooloftech.railways.entity.User;
@@ -17,7 +14,6 @@ import com.schooloftech.railways.repository.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.schooloftech.railways.CSVHelper;
@@ -25,6 +21,9 @@ import com.schooloftech.railways.CSVService;
 import com.schooloftech.railways.ResponseMessage;
 
 import jakarta.servlet.http.HttpSession;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller
@@ -40,8 +39,24 @@ public class MainController {
     CSVService fileService;
 
     //returns a thymeleaf template
+
     @GetMapping("/home")
+    @RequestMapping(value="/home", method = RequestMethod.GET)
     public String homePage(Model model){
+        //Booking booking=new Booking();
+        //model.addAttribute("Booking",booking);
+        List<String> stations = new ArrayList<String>();
+        stations.add("Tokyo");
+        stations.add("Shinagawa");
+        stations.add("Meguro");
+        stations.add("Shibuya");
+        stations.add("Shinjuku");
+        stations.add("Ikebukuro");
+        stations.add("Komagome");
+        stations.add("Nippori");
+        stations.add("Ueno");
+        stations.add("Akihabara");
+        model.addAttribute("stations",stations);
         return "home";
     }
 
@@ -87,5 +102,6 @@ public class MainController {
     public Schedule get(@PathVariable Integer id){
         return schedRepo.getReferenceById(id);
     }
+
     
 }
