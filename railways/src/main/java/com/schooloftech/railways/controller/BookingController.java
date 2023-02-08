@@ -3,6 +3,7 @@ package com.schooloftech.railways.controller;
 import com.schooloftech.railways.form.BookingForm;
 import com.schooloftech.railways.service.BookingService;
 import com.schooloftech.railways.service.CapacityService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Controller
+@Slf4j
 public class BookingController {
 
     @Autowired
@@ -27,6 +29,8 @@ public class BookingController {
 
     @PostMapping("/confirmation")
     public String bookTicket(@ModelAttribute("bookingForm") BookingForm bookingForm, Model model) {
+    log.info("inside bookTicket bookingForm; {}", bookingForm);
+    log.info("number of people=" + bookingForm.getnumber_of_people() + "\n source station" + bookingForm.getdeparting_station() + "\n destination" + bookingForm.getarrival_station() +"\n date"+bookingForm.getdeparture_date() );
         if (capacityService.checkAvailability(bookingForm)) {
             bookingService.bookTicket(bookingForm);
             capacityService.updateCapacity(bookingForm);
