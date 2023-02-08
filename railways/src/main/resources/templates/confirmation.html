@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-type" content="text/html"; charset="UTF-8">
+  <title>Confirmation Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+  <link th:href = "@{/css/travelsearch.css}" rel = "stylesheet">
+</head>
+<body style="background-image:url('https://n3n.io/wp-content/uploads/2018/03/translog-flip-e1522168792554-800x483.jpg');background-size:cover">
+
+<div th:insert="navbar_prelogin :: navbar_prelogin"></div>
+<br>
+<h1>SoT Railway Ticketing System</h1>
+<br>
+<h2>Ticket Confirmation</h2>
+<br>
+<table>
+  <tr>
+    <td>Departing Station:</td>
+    <td th:text="${departing_station}"></td>
+  </tr>
+  <tr>
+    <td>Arrival Station:</td>
+    <td th:text="${arrival_station}"></td>
+  </tr>
+  <tr>
+    <td>Departure Date:</td>
+    <td th:text="${departure_date}"></td>
+  </tr>
+  <tr>
+    <td>Number of People:</td>
+    <td th:text="${number_of_people}"></td>
+  </tr>
+  <tr>
+    <h3>Train fare: {{fare}} yen</h3>
+  </tr>
+</table>
+<br>
+<!--<p>Thank you for choosing SoT Railway Ticketing System. Your ticket has been confirmed!</p>-->
+</body>
+</html>

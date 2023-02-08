@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xlmns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-type" content="text/html"; charset="UTF-8">
     <title>Home Page</title>
@@ -14,7 +14,7 @@
     <br>
     <h1>SoT Railway Ticketing System</h1>
 
-    <form>
+    <form method="post" action="/railwayticketing/confirmation">
         <h3>Find your seats! </h3>
         <label>From:</label>
         <input type="text" name="departing_station" method = "post" class = "inputrect">
