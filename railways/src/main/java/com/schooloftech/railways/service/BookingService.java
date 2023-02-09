@@ -1,9 +1,15 @@
 package com.schooloftech.railways.service;
 
 import com.schooloftech.railways.form.BookingForm;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.schooloftech.railways.repository.StationsRepository;
+
+import java.time.LocalTime;
 
 @Service
+@Slf4j
 //public class BookingService {
 //
 //    @Autowired
@@ -43,8 +49,28 @@ public class BookingService {
             throw new RuntimeException("Not enough seats available");
         }
     }
-    public int calculatefare(int departStationId, int arriveStationId) {
-        return Math.abs(arriveStationId - departStationId);
+    @Autowired
+    StationsRepository stationsRepository;
+    public double calculatefare(String departing_station, String arrival_station, LocalTime departure_time) {
+        log.info("departing station : " + departing_station);
+        log.info("arrival station: " + arrival_station);
+        Integer departStationId = stationsRepository.findIDByStation(departing_station).get(0);
+        Integer arriveStationId = stationsRepository.findIDByStation(arrival_station).get(0);
+        log.info("departStationid: " + departStationId);
+        log.info("arrivalStationID: " + arriveStationId);
+        log.info("departure time: " + departure_time);
+        double train_fare;
+        if (departure_time.isAfter(LocalTime.of(8, 0)) && departure_time.isBefore(LocalTime.of(9, 0))) {
+            train_fare = Math.abs(arriveStationId - departStationId) * 10 * 1.25;
+        } else {
+            train_fare = Math.abs(arriveStationId - departStationId) * 10;
+        }
+        log.info("calculatefare : " + train_fare);
+        return train_fare;
     }
+/*
 
+
+
+ */
 }

@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link th:href = "@{/css/main.css}" rel = "stylesheet">
+<link th:href = "@{/css/table.css}" rel = "stylesheet">
 <head>
   <meta http-equiv="Content-type" content="text/html"; charset="UTF-8">
   <title>Confirmation Page</title>
@@ -30,11 +32,16 @@
     <td th:text="${departure_date}"></td>
   </tr>
   <tr>
+    <td>Depature Time:</td>
+    <td th:text="${departure_time}"></td>
+  </tr>
+  <tr>
     <td>Number of People:</td>
     <td th:text="${number_of_people}"></td>
   </tr>
   <tr>
-    <h3>Train fare: {{fare}} yen</h3>
+    <td>Train Fare:</td>
+    <td th:text="${train_fare} + ' yen'"></td>
   </tr>
 </table>
 <br>
