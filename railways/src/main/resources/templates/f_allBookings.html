@@ -29,6 +29,10 @@
         <tr th:each="booking: ${bookings}">
             <td th:text="${booking.id}">
         </tr>
+<div align="center">
+    <a href="f_perStationChart.html" th:href="@{/finance/perStationChart}"><button name= "station_report">Station Report</button></a>
+</div>
+
 </body>
 </html>
 
