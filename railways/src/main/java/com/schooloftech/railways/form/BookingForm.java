@@ -2,10 +2,13 @@ package com.schooloftech.railways.form;
 
 
 import java.time.LocalDate;
+import java.time.LocalTime;
+
 import com.schooloftech.railways.entity.User;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
+
 
 @Setter
 @Getter
@@ -14,6 +17,17 @@ public class BookingForm {
     private String departing_station;
     private String arrival_station;
     private LocalDate departure_date;
+
+
+    public LocalTime getDeparture_time() {
+        return departure_time;
+    }
+
+    public void setDeparture_time(LocalTime departure_time) {
+        this.departure_time = departure_time;
+    }
+
+    private LocalTime departure_time;
     private int number_of_people;
     private double train_fare;
 
@@ -49,11 +63,11 @@ public class BookingForm {
     public void setnumber_of_people(int number_of_people) {
         this.number_of_people = number_of_people;
     }
-    public double getTrainFare(){
+    public double gettrain_fare(){
         return train_fare;
     }
 
-    public void setTrainFare(double trainFare){
+    public void settrain_fare(double train_fare){
         this.train_fare = train_fare;
     }
 }
