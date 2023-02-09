@@ -44,7 +44,25 @@
     <td th:text="${train_fare} + ' yen'"></td>
   </tr>
 </table>
+<table>
+  <tr>
+    <td>Payment Method:</td>
+    <td><input type="radio" name="Payment Method" value="Cash" checked="checked" style="height:10px; width=10px; vertical-align: middle;"></td>
+    <td>Cash</td>
+    <td><input type="radio" name="Payment Method" value="Credit Card (Currently Unavailable)" checked="checked" style="height:10px; width=10px; vertical-align: middle;"/></td>
+    <td>Credit Card (currently unavailable)</td>
+  </tr>
+</table>
 <br>
-<!--<p>Thank you for choosing SoT Railway Ticketing System. Your ticket has been confirmed!</p>-->
+<style>
+      button {
+        width: 80px;
+        height: 50px;
+        display: inline-block;
+      }
+</style>
+<button>Confirm</button>
+<button>Cancel</button>
 </body>
+
 </html>
