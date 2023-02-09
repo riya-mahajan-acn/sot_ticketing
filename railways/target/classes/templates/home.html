@@ -36,7 +36,7 @@
         <!--<input type="text" name="departing_station" method = "post" class = "inputrect">!-->
         <label>To:</label>
         <select class="form-control" id="sel2" name="arrival_station" method="post">
-            <option value="0">Select arrival station</option>
+            <option value="NONE">Select arrival station</option>
             <option th:each="station : ${stations}"
                     th:value="${station}"
                     th:text="${station}">
@@ -45,6 +45,8 @@
         <!--<input type="text" name="arrival_station" method = "post" class = "inputrect">!-->
         <label>Date</label>
         <input type="date" name="departure_date" method = "post" class = "inputrect">
+        <label for="appt">Departure Time</label>
+        <input type="time" step="1800" id="appt" name="departure_time" min="00:00" max="24:00" required>
         <label>Number of People:</label>
         <input type="number" name="number_of_people" method = "post" min = "1" max = "5" class = "inputrect">
         <button type="submit" onclick="location.href='/confirmation'">Submit</button>
