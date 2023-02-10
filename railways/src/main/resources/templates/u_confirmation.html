@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link th:href = "@{/css/main.css}" rel = "stylesheet">
+<link th:href = "@{/css/table.css}" rel = "stylesheet">
+<head>
+  <meta http-equiv="Content-type" content="text/html"; charset="UTF-8">
+  <title>Confirmation Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+  <link th:href = "@{/css/travelsearch.css}" rel = "stylesheet">
+</head>
+<body style="background-image:url('https://n3n.io/wp-content/uploads/2018/03/translog-flip-e1522168792554-800x483.jpg');background-size:cover">
+
+<div th:insert="navbar_postlogin :: navbar_postlogin"></div>
+<br>
+<h1>SoT Railway Ticketing System</h1>
+<br>
+<h2 class = "center">Ticket Confirmation</h2>
+<br>
+<table class = "center">
+  <tr>
+    <th scope="row">Customer ID</th>
+    <td th:text="${custId}"></td>
+  </tr>
+  <tr>
+    <th scope="row">Departing Station ID</th>
+    <td th:text="${departing_station}"></td>
+  </tr>
+  <tr>
+    <th scope="row">Arrical Station</th>
+    <td th:text="${arrival_station}"></td>
+  </tr>
+  <tr>
+    <th scope="row">Departure Date</th>
+    <td th:text="${departure_date}"></td>
+  </tr>
+  <tr>
+    <th scope="row">Departure Time</th>
+    <td th:text="${departure_time}"></td>
+  </tr>
+  <tr>
+    <th scope="row">Number of People</th>
+    <td th:text="${number_of_people}"></td>
+  </tr>
+  <tr>
+    <th scope="row">Train Fare</th>
+    <td th:text="${train_fare} + ' yen per Person'"></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>Payment Method:</td>
+    <td><input type="radio" name="Payment Method" value="Cash" checked="checked" style="height:10px; width=10px; vertical-align: middle;"></td>
+    <td>Cash</td>
+    <td><input type="radio" name="Payment Method" value="Credit Card (Currently Unavailable)" checked="checked" style="height:10px; width=10px; vertical-align: middle;"/></td>
+    <td>Credit Card (currently unavailable)</td>
+  </tr>
+</table>
+<br>
+<style>
+      button {
+        width: 80px;
+        height: 50px;
+        display: inline-block;
+      }
+</style>
+<button>Confirm</button>
+<button>Cancel</button>
+<br>
+<!--<p>Thank you for choosing SoT Railway Ticketing System. Your ticket has been confirmed!</p>-->
+</body>
+</html>

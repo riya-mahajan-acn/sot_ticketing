@@ -2,15 +2,11 @@ body {
     color: #000000;
     font-family: Arial, Helvetica, sans-serif;
 }
-
 .loginregistcontent{
-
     margin:auto;
     width: 15cm;
     height:fit-content;
-
 }
-
 .background{
     width: 430px;
     height: 520px;
@@ -19,23 +15,19 @@ body {
     left: 50%;
     top: 50%;
 }
-
 .background .shape{
     height: 200px;
     width: 200px;
     position: absolute;
     border-radius: 50%;
 }
-
 .shape:first-child{
     background: linear-gradient(
         #1845ad,
-        #23a2f6
-    );
+        #23a2f6    );
     left: -80px;
     top: -80px;
 }
-
 form{
     height: 400px;
     width: 400px;
@@ -50,7 +42,6 @@ form{
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
     padding: 50px 35px;
 }
-
 form *{
     font-family: Arial, Helvetica, sans-serif;
     color: black;
@@ -58,7 +49,6 @@ form *{
     outline: none;
     border: none;
 }
-
 form h3{
     font-size: 32px;
     font-weight: bold;
@@ -66,7 +56,6 @@ form h3{
     text-align: center;
     color:black;
 }
-
 label{
     display: block;
     margin-top: 5px;
@@ -74,7 +63,6 @@ label{
     font-weight: 500;
     color:black;
 }
-
 input{
     display: block;
     height: 40px;
@@ -89,15 +77,13 @@ input{
     font-weight: 300;
     color:grey;
 }
-
 ::placeholder{
     color: black;
 }
-
 button{
     margin-top: 20px;
     margin-bottom: 10px;
-    width: 400px;
+    width: 100%;
     color: #080710;
     padding: 15px 0px;
     font-size: 18px;
@@ -105,24 +91,23 @@ button{
     border-radius: 5px;
     cursor: pointer;
 }
-
 button:hover{
   color: #fff;
   border: #fff solid 1px;
   background:#cc86f55b;
 }
-
 a{
-    color:black;
+    color:white;
     font-family: 'Nunito';
-    font-size: 18px
+    font-size: 18px;
     font-weight: bold;
 }
-
 .inputrect{
     border-radius: 80px;
 }
-
 h1{
+    text-align: center;
+}
+h2{
     text-align: center;
 }
