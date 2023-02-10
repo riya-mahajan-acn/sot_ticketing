@@ -14,55 +14,57 @@
 
 <div th:insert="navbar_prelogin :: navbar_prelogin"></div>
 <br>
-<h1>SoT Railway Ticketing System</h1>
-<br>
-<h2>Ticket Confirmation</h2>
-<br>
-<table>
-  <tr>
-    <td>Departing Station:</td>
-    <td th:text="${departing_station}"></td>
-  </tr>
-  <tr>
-    <td>Arrival Station:</td>
-    <td th:text="${arrival_station}"></td>
-  </tr>
-  <tr>
-    <td>Departure Date:</td>
-    <td th:text="${departure_date}"></td>
-  </tr>
-  <tr>
-    <td>Departure Time:</td>
-    <td th:text="${departure_time}"></td>
-  </tr>
-  <tr>
-    <td>Number of People:</td>
-    <td th:text="${number_of_people}"></td>
-  </tr>
-  <tr>
-    <td>Train Fare:</td>
-    <td th:text="${train_fare} + ' yen'"></td>
-  </tr>
-</table>
-<table>
-  <tr>
-    <td>Payment Method:</td>
-    <td><input type="radio" name="Payment Method" value="Cash" checked="checked" style="height:10px; width=10px; vertical-align: middle;"></td>
-    <td>Cash</td>
-    <td><input type="radio" name="Payment Method" value="Credit Card (Currently Unavailable)" checked="checked" style="height:10px; width=10px; vertical-align: middle;"/></td>
-    <td>Credit Card (currently unavailable)</td>
-  </tr>
-</table>
-<br>
-<style>
-      button {
-        width: 80px;
-        height: 50px;
-        display: inline-block;
-      }
-</style>
-<button>Confirm</button>
-<button>Cancel</button>
+<form th:action="@{/confirm}" method="post">
+  <h1>SoT Railway Ticketing System</h1>
+  <br>
+  <h2>Ticket Confirmation</h2>
+  <br>
+  <table>
+    <tr>
+      <td>Departing Station:</td>
+      <td th:text="${departing_station}"></td>
+    </tr>
+    <tr>
+      <td>Arrival Station:</td>
+      <td th:text="${arrival_station}" name="${arrival_station}" method="post" th:value="*{arrival_station}"></td>
+    </tr>
+    <tr>
+      <td>Departure Date:</td>
+      <td th:text="${departure_date}"></td>
+    </tr>
+    <tr>
+      <td>Departure Time:</td>
+      <td th:text="${departure_time}"></td>
+    </tr>
+    <tr>
+      <td>Number of People:</td>
+      <td th:text="${number_of_people}"></td>
+    </tr>
+    <tr>
+      <td>Train Fare (per ticket):</td>
+      <td th:text="${train_fare} + ' yen'"></td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td>Payment Method:</td>
+      <td><input type="radio" name="Payment Method" value="cash" checked="checked" style="height:10px; width=10px; vertical-align: middle;"></td>
+      <td>Cash</td>
+      <td><input type="radio" name="Payment Method" value="Credit Card (Currently Unavailable)" checked="checked" style="height:10px; width=10px; vertical-align: middle;"/></td>
+      <td>Credit Card (currently unavailable)</td>
+    </tr>
+  </table>
+  <br>
+  <style>
+        button {
+          width: 80px;
+          height: 50px;
+          display: inline-block;
+        }
+  </style>
+  <button type="submit" onclick="location.href='/confirm'">Confirm</button>
+  <button type="reset" onclick="location.href='/home'">Cancel</button>
+</form>
 </body>
 
 </html>

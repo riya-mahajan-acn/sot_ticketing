@@ -14,28 +14,7 @@ import java.time.LocalTime;
 
 @Service
 @Slf4j
-//public class BookingService {
-//
-//    @Autowired
-//    private CapacityService capacityService;
-//
-//
-//    public BookingService(CapacityService capacityService) {
-//        this.capacityService = capacityService;
-//    }
-//
-//    public boolean bookTicket(BookingForm bookingForm) {
-//        int requestedTickets = bookingForm.getNumberOfTickets();
-//        LocalDate travelDate = bookingForm.getTravelDate();
-//
-//        if (capacityService.checkAvailability(requestedTickets, travelDate)) {
-//            capacityService.updateCapacity(requestedTickets, travelDate);
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
-//}
+
 public class BookingService {
     private final CapacityService capacityService;
 

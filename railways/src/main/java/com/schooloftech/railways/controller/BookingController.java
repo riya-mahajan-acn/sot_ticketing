@@ -31,10 +31,6 @@ public class BookingController {
 
     @PostMapping("/confirmation")
     public String bookTicket(@ModelAttribute("bookingForm") BookingForm bookingForm, Model model) {
-        System.out.println(stationsRepository.findIDByStation(bookingForm.getdeparting_station()));
-        System.out.println(stationsRepository.findIDByStation(bookingForm.getarrival_station()));
-        System.out.println(bookingForm.getdeparting_station());
-        System.out.println(bookingForm.getarrival_station());
     log.info("inside bookTicket bookingForm; {}", bookingForm);
     log.info("number of people=" + bookingForm.getnumber_of_people() + "\n source station" + bookingForm.getdeparting_station() + "\n destination" + bookingForm.getarrival_station() +"\n date"+bookingForm.getdeparture_date() );
         if (capacityService.checkAvailability(bookingForm)) {

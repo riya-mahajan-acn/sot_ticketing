@@ -6,12 +6,11 @@ import com.schooloftech.railways.form.BookingForm;
 import com.schooloftech.railways.repository.BookingRepository;
 import com.schooloftech.railways.service.BookingService;
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.Time;
 import java.text.DateFormat;
@@ -19,25 +18,29 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 
+
 @RestController
+@Slf4j
 public class ConfirmController {
 
     @Autowired
     private BookingRepository bookingRepository;
-    @Autowired
-    private BookingForm bookingForm;
 
-    @PostMapping("/confirmBooking")
+//    @Autowired
+  //  private BookingForm bookingForm;
+
+
+    @PostMapping("/confirm")
 
     public String confirmBooking(Model model){
-        Booking booking = convertToBooking(bookingForm);
-        bookingRepository.save(booking);
-        return "confirmBooking";
+    //    Booking booking = convertToBooking(bookingForm);
+      //  bookingRepository.save(booking);
+        return "confirm";
     }
 
     @PostMapping("/cancel")
     public String cancelBooking(Model model){
-        bookingForm.clear();
+       //bookingForm.clear();
         return "home";
     }
     private Booking convertToBooking(BookingForm bookingForm){
