@@ -1,11 +1,15 @@
 package com.schooloftech.railways.service;
 
 import com.schooloftech.railways.form.BookingForm;
+import com.schooloftech.railways.repository.BookingRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.schooloftech.railways.repository.StationsRepository;
+import com.schooloftech.railways.entity.Booking;
+import com.schooloftech.railways.form.BookingForm;
 
+import java.awt.print.Book;
 import java.time.LocalTime;
 
 @Service
@@ -68,9 +72,4 @@ public class BookingService {
         log.info("calculatefare : " + train_fare);
         return train_fare;
     }
-/*
-
-
-
- */
 }

@@ -70,4 +70,15 @@ public class BookingForm {
     public void settrain_fare(double train_fare){
         this.train_fare = train_fare;
     }
+
+    public void clear(){
+        this.departing_station=null;
+        this.arrival_station=null;
+        this.departure_date=null;
+        this.departure_time=null;
+        this.train_fare=0.0;
+        this.number_of_people=0;
+
+    }
+
 }
