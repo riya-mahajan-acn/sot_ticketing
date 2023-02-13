@@ -14,57 +14,82 @@
 
 <div th:insert="navbar_prelogin :: navbar_prelogin"></div>
 <br>
-<form th:action="@{/confirm}" method="post">
-  <h1>SoT Railway Ticketing System</h1>
+<h1>SoT Railway Ticketing System</h1>
+<br>
+<div id="htmlContent">
+  <h2 class = "center">Ticket Confirmation</h2>
   <br>
-  <h2>Ticket Confirmation</h2>
-  <br>
-  <table>
+  <table class = "center">
     <tr>
-      <td>Departing Station:</td>
+      <th scope="row">Departing Station:</th>
       <td th:text="${departing_station}"></td>
     </tr>
     <tr>
-      <td>Arrival Station:</td>
-      <td th:text="${arrival_station}" name="${arrival_station}" method="post" th:value="*{arrival_station}"></td>
+      <th scope="row">Arrival Station</th>
+      <td th:text="${arrival_station}"></td>
     </tr>
     <tr>
-      <td>Departure Date:</td>
+      <th scope="row">Departure Date</th>
       <td th:text="${departure_date}"></td>
     </tr>
     <tr>
-      <td>Departure Time:</td>
+      <th scope="row">Departure Time</th>
       <td th:text="${departure_time}"></td>
     </tr>
     <tr>
-      <td>Number of People:</td>
+      <th scope="row">Number of People</th>
       <td th:text="${number_of_people}"></td>
     </tr>
     <tr>
-      <td>Train Fare (per ticket):</td>
-      <td th:text="${train_fare} + ' yen'"></td>
+      <th scope="row">Train Fare</th>
+      <td th:text="${train_fare} + ' yen per Person'"></td>
     </tr>
   </table>
-  <table>
-    <tr>
-      <td>Payment Method:</td>
-      <td><input type="radio" name="Payment Method" value="cash" checked="checked" style="height:10px; width=10px; vertical-align: middle;"></td>
-      <td>Cash</td>
-      <td><input type="radio" name="Payment Method" value="Credit Card (Currently Unavailable)" checked="checked" style="height:10px; width=10px; vertical-align: middle;"/></td>
-      <td>Credit Card (currently unavailable)</td>
-    </tr>
-  </table>
-  <br>
-  <style>
-        button {
-          width: 80px;
-          height: 50px;
-          display: inline-block;
-        }
-  </style>
-  <button type="submit" onclick="location.href='/confirm'">Confirm</button>
-  <button type="reset" onclick="location.href='/home'">Cancel</button>
-</form>
+</div>
+<table class="center">
+  <tr>
+    <td>Payment Method:</td>
+    <td><input type="radio" name="Payment Method" value="Cash" checked="checked" style="height:10px; width=10px; vertical-align: middle;"></td>
+    <td>Cash</td>
+    <td><input type="radio" name="Payment Method" value="Credit Card (Currently Unavailable)" checked="checked" style="height:10px; width=10px; vertical-align: middle;"/></td>
+    <td>Credit Card (currently unavailable)</td>
+  </tr>
+</table>
+<br>
+<style>
+      button {
+        width: 200px;
+        height: 50px;
+        display: inline-block;
+      }
+</style>
+<center>
+<button>Confirm</button>
+<button>Cancel</button>
+<div id="editor"></div>
+  <p>
+    <button id="generatePDF">Download as a PDF</button>
+  </p>
+</center>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+<script type="text/javascript">
+var doc = new jsPDF();
+var specialElementHandlers = {
+    '#editor': function (element, renderer) {
+        return true;
+    }
+};
+
+
+$('#generatePDF').click(function () {
+    doc.fromHTML($('#htmlContent').html(), 15, 15, {
+        'width': 700,
+        'elementHandlers': specialElementHandlers
+    });
+    doc.save('sample_file.pdf');
+});
+</script>
 </body>
 
 </html>
